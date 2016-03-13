@@ -70,7 +70,7 @@ def main():
                 msg = p['body']['data'].replace('_', '+').replace('-', '/');
                 msg = base64.b64decode(msg);
                 for line in msg.split('\n'):
-                    if line[0] != '>':
+                    if len(line) and line[0] != '>' and line[0] != '?' and line.rstrip()[-6:] != "wrote:":
                         print(line)
                 print('\n<BREAK>\n')
 
